@@ -1,15 +1,12 @@
-  html { 
-  background: url(assets/images/sign-in-background.jpeg); 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-  body {
+/*body {
     padding-top: 15px;
     font-size: 12px;
-   }
+    background-image: url(assets/images/sign-in-background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;   
+   }*/
+
   .main {
     max-width: 320px;
     margin: 0 auto;
