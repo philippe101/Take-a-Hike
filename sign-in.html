@@ -11,6 +11,9 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+	<!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
 
@@ -43,10 +46,10 @@
       <h3>Please Log In, or <a href="#">Sign Up</a></h3>
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
-          <a href="#" class="btn btn-lg btn-primary btn-block btn-github"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+          <a href="#" class="btn btn-lg btn-primary btn-block" id="btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
-          <a href="#" class="btn btn-lg btn-info btn-block"><i class="fa fa-google-plus" aria-hidden="true"></i> Google</a>
+          <a href="#" class="btn btn-lg btn-info btn-block" id="btn-google"><i class="fa fa-google-plus" aria-hidden="true"></i> Google</a>
         </div>
       </div>
       <div class="login-or">
@@ -69,8 +72,12 @@
             <input type="checkbox">
             Remember me </label>
         </div>
-        <button type="submit" class="btn btn btn-secondary">
+        <button type="submit" class="btn btn btn-secondary" id="btn-submit">
           Log In
+        </button>
+
+        <button type="submit" class="btn btn btn-secondary" id="btn-sign-up">
+          Sign Up
         </button>
       </form>
     
@@ -82,4 +89,9 @@
 
 
 </body>
+
+
+
+
+
 </html>
