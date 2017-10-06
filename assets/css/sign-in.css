@@ -1,5 +1,4 @@
   html { 
-  background: url(assets/images/sign-in-background.jpeg); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -57,10 +56,21 @@
 
 .btn-primary {
     color:#fff;
-    background-color: #000000;
+    background-color: #3b5998;
     border-color: #000000;
 }
 
+
+
 a {
     color: #339933;
+}
+
+
+.facebookColor {
+}
+
+
+.googleColor {
+  background-color:#d34836;
 }

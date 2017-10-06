@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	
 	<title>
-		Sign In: Take A Hike!
+		Sign Up: Take A Hike!
 	</title>
 
 <!-- fancy shit -->
@@ -58,7 +58,7 @@
 
     <div class="main">
 
-      <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+      <h3>Sign Up! <a href="#"></a></h3>
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
           <a href="#" class="btn btn-lg btn-primary btn-block btn-github"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
@@ -74,21 +74,17 @@
 
       <form role="form">
         <div class="form-group">
-          <label for="inputUsernameEmail">Email</label>
-          <input type="text" class="form-control" id="inputUsernameEmail">
+          <label for="createEmail">Enter Your Email</label>
+          <input type="text" class="form-control" id="createEmail">
         </div>
         <div class="form-group">
-          <a class="pull-right" href="#">Forgot password?</a>
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword">
+          <a class="pull-right" href="#"></a>
+          <label for="createPassword">Create a Password</label>
+          <input type="password" class="form-control" id="createPassword">
         </div>
-        <div class="checkbox pull-right">
-          <label>
-            <input type="checkbox">
-            Remember me </label>
-        </div>
-        <button type="submit" class="btn btn btn-secondary" id="add-user">
-          Log In 
+    
+        <button type="submit" class="btn btn btn-secondary" id="sign-up">
+          Sign Me Up! 
         </button>
       </form>
     
@@ -119,15 +115,13 @@
   var password ="";
 
 
-  $("#add-user").on("click", function(event) {
+  $("#sign-up").on("click", function(event) {
       event.preventDefault();
 
-  email = $("#inputUsernameEmail").val().trim();
-  password = $("#inputPassword").val().trim();
+  email = $("#createEmail").val().trim();
+  password = $("#createPassword").val().trim();
 
-dataRef.ref().push({
-
-        
+dataRef.ref().push({       
         email: email,
         password: password,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
@@ -137,10 +131,10 @@ dataRef.ref().push({
 dataRef.ref().on("child_added", function (childSnapshot){
 
 console.log(childSnapshot.val().email);
-console.log(childSnapshot.val().dateAdded);
+console.log(childSnapshot.val().password);
 
-  $("#full-member-list").append("<div class='well'><span id='name'> " + childSnapshot.val().name +
-    " </span><span id='email'> " + childSnapshot.val().email)
+  $("#full-member-list").append("<div class='well'><span id='email'> " + childSnapshot.val().email +
+    " </span><span id='password'> " + childSnapshot.val().password)
 })
 
 
