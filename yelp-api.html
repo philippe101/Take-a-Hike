@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Yelp API JSON Data</title>
+</head>
+
+<body>
+
+<div id="searchbox">
+  <form>
+    Search for <input type="text" id="term" name="term" value="sushi"/> <input type="button" value="Search" onclick="updateList();"/>
+  </form>
+</div>
+<div id="results">
+  <ul>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Performing GET requests to the OMDB API and logging the responses to the console
+    // $.ajax({
+    //   url: "https://api.yelp.com/oauth2/token?grant_type= OAuth2&client_secret= htGetnPo6G4BH6om6HTUcahEhcCg7WAMCPFYWiwwox6plKRWzQT1ava9gOj31RSx&client_id=Cn7txzEZaUWmCeNZkhtN2w",
+    //   method: "POST"
+    // }).done(function(response) {
+    //   console.log(response);
+    // });
+
+
+    // $.ajax({
+    //   url: "https://api.yelp.com/oauth2/token",
+    //   method: "GET"
+    // }).done(function(response) {
+    //   console.log(response);
+    // });
+
+
+// var ywsid = 'UrPhGRv43J2Hg8G_0ELofQ'
+// var ylimit = '10'
+// var ylocation = 'tl_lat=37.9&tl_long=-122.5&br_lat=37.788022&br_long=-122.399797'
+// var yurl = 'http://api.yelp.com/business_review_search?'+ylocation+'&limit='+ylimit+'&ywsid='+ywsid
+
+// console.log(ywsid);
+// console.log(ylimit);
+// console.log(ylocation);
+// console.log(yurl);
+
+
+
+// function updateList() {
+
+//   //remove list
+//   $('.clear').remove()
+
+//   //add search term to querystring
+//   var searchUrl = yurl + '&term=' + $('#term').val()
+//   console.log(searchUrl);
+
+//   //GET jsonp url
+//   $.ajax({
+//     dataType: 'jsonp',
+//     jsonpCallback: 'yelpCallback',
+//     url: searchUrl
+//   })
+
+//   //jsonp callback
+//   window.yelpCallback = function(data) {
+//     data.businesses.forEach(function(v, i, a) {
+//       var li = "<li class='clear'>" + v.name + '</li>'
+//       $('#results ul').append(li)       
+//     });
+
+var auth = { 
+    consumerKey: "YOURKEY", 
+    consumerSecret: "YOURSECRET",
+    accessToken: "Cn7txzEZaUWmCeNZkhtN2w",
+    accessTokenSecret: "htGetnPo6G4BH6om6HTUcahEhcCg7WAMCPFYWiwwox6plKRWzQT1ava9gOj31RSx",
+  };
+
+  var terms = 'food';
+  var near = 'San+Francisco';
+
+  var accessor = {
+    consumerSecret: auth.consumerSecret,
+    tokenSecret: auth.accessTokenSecret
+  };
+
+  var parameters = [];
+  parameters.push(['term', terms]);
+  parameters.push(['location', near]);
+  parameters.push(['oauth_consumer_key', auth.consumerKey]);
+  parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+  parameters.push(['oauth_token', auth.accessToken]);
+
+  var message = { 
+    'action': 'http://api.yelp.com/v2/search',
+    'method': 'GET',
+    'parameters': parameters 
+  };
+
+  OAuth.setTimestampAndNonce(message);  
+
+  OAuth.SignatureMethod.sign(message, accessor);
+
+  var parameterMap = OAuth.getParameterMap(message.parameters);
+  parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+  console.log(parameterMap);
+
+  var url = OAuth.addToURL(message.action,parameterMap);
+  var response = UrlFetchApp.fetch(url).getContentText();
+  var responseObject = Utilities.jsonParse(response);
+
+
+
+</script>
+</body>
+</html>
