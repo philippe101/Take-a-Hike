@@ -18,7 +18,7 @@ $(document).ready(function() {
 
       $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
       $("#current-skies").html("<p>Current skies: " + data.currently.summary);
-      $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
+      $("#tomorrow-high").html(data.daily.data[0].temperatureHigh + "F</p>");
     }
 
 
