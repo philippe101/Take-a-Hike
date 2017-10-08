@@ -2,46 +2,41 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	
-	<title>
-		Sign Up: Take A Hike!
-	</title>
+  <meta charset="UTF-8">
+  
+  <title>
+    Sign Up: Take A Hike!
+  </title>
 
 <!-- fancy shit -->
 <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> -->
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<!-- CSS -->
+  <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
 
-	<link rel="stylesheet" type="text/css" href="assets/css/sign-in.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/sign-in.css" />
 
-	<!-- Favicon -->
-
-
+  <!-- Favicon -->
 
 
-	<!-- <link rel="shortcut icon" href="assets/images/favicon_icon.ico" /> -->
+  <!-- <link rel="shortcut icon" href="assets/images/favicon_icon.ico" /> -->
 
-	<!-- Font Awesome for sign-in page -->
-	<script src="https://use.fontawesome.com/c8557d0f90.js"></script>
+  <!-- Font Awesome for sign-in page -->
+  <script src="https://use.fontawesome.com/c8557d0f90.js"></script>
 
-	<!--JavaScript -->
-	<script type="text/javascript" src="assets/javascript/sign-in.js"></script>
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-	<!-- Moment.js -->
-	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <!-- Moment.js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 
 <!-- firebase -->
@@ -58,34 +53,57 @@
 
     <div class="main">
 
-      <h3>Sign Up! <a href="#"></a></h3>
+      <h1>TAKE A HIKE! <a href="#"></a></h1>
       <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6">
+      
+<!-- Google and Facebook buttons -->
+
+      <!--   <div class="col-xs-6 col-sm-6 col-md-6">
           <a href="#" class="btn btn-lg btn-primary btn-block btn-github"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
           <a href="#" class="btn btn-lg btn-primary btn-block btn-github googleColor"><i class="fa fa-google" aria-hidden="true"></i> Google</a>
-        </div>
+        </div> -->
+
+
+
       </div>
       <div class="login-or">
-        <hr class="hr-or">
-        <span class="span-or">or</span>
+        
+
+<!-- 
+        <hr class="hr-or"> -->
+        <!-- <span class="span-or">or</span> -->
+      
+
+
       </div>
 
       <form role="form">
         <div class="form-group">
           <label for="createEmail">Enter Your Email</label>
-          <input type="text" class="form-control" id="createEmail">
+          <input type="text" class="form-control" id ="txtEmail">
+         
         </div>
         <div class="form-group">
           <a class="pull-right" href="#"></a>
           <label for="createPassword">Create a Password</label>
-          <input type="password" class="form-control" id="createPassword">
+          <input type="password" class="form-control" id="txtPassword">
         </div>
-    
-        <button type="submit" class="btn btn btn-secondary" id="sign-up">
-          Sign Me Up! 
+
+        <button type="submit" class="btn btn btn-secondary" id="btnLogin">
+          Login 
         </button>
+
+        <button type="submit" class="btn btn btn-secondary" id="btnSignUp">
+          Sign Up 
+        </button>
+
+        <button id="btnLogout" class="btn btn-action hide">
+          Log out
+        </button>
+
+      
       </form>
     
 
@@ -97,51 +115,56 @@
 
 
 
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBdJyQWscf12G0AHe0UcI079igredcakD4",
-    authDomain: "class-thing.firebaseapp.com",
-    databaseURL: "https://class-thing.firebaseio.com",
-    projectId: "class-thing",
-    storageBucket: "class-thing.appspot.com",
-    messagingSenderId: "742683233065"
-  };
-  firebase.initializeApp(config);
-
-  var dataRef = firebase.database();
-
-   var email="";
-  var password ="";
-
-
-  $("#sign-up").on("click", function(event) {
-      event.preventDefault();
-
-  email = $("#createEmail").val().trim();
-  password = $("#createPassword").val().trim();
-
-dataRef.ref().push({       
-        email: email,
-        password: password,
-        dateAdded: firebase.database.ServerValue.TIMESTAMP
-         });
-    });
-
-dataRef.ref().on("child_added", function (childSnapshot){
-
-console.log(childSnapshot.val().email);
-console.log(childSnapshot.val().password);
-
-  $("#full-member-list").append("<div class='well'><span id='email'> " + childSnapshot.val().email +
-    " </span><span id='password'> " + childSnapshot.val().password)
-})
-
-
-</script>
 
 
 
 
+  <script src="assets/javascript/app.js"> </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+// trial 2
+//   // Initialize Firebase
+//   var config = {
+//     apiKey: "AIzaSyBdJyQWscf12G0AHe0UcI079igredcakD4",
+//     authDomain: "class-thing.firebaseapp.com",
+//     databaseURL: "https://class-thing.firebaseio.com",
+//     projectId: "class-thing",
+//     storageBucket: "class-thing.appspot.com",
+//     messagingSenderId: "742683233065"
+//   };
+//   firebase.initializeApp(config);
+//   var dataRef = firebase.database();
+//    var email="";
+//   var password ="";
+//   $("#sign-up").on("click", function(event) {
+//       event.preventDefault();
+//   email = $("#createEmail").val().trim();
+//   password = $("#createPassword").val().trim();
+// dataRef.ref().push({       
+//         email: email,
+//         password: password,
+//         dateAdded: firebase.database.ServerValue.TIMESTAMP
+//          });
+//     });
+// dataRef.ref().on("child_added", function (childSnapshot){
+// console.log(childSnapshot.val().email);
+// console.log(childSnapshot.val().password);
+//   $("#full-member-list").append("<div class='well'><span id='email'> " + childSnapshot.val().email +
+//     " </span><span id='password'> " + childSnapshot.val().password)
+// }) -->

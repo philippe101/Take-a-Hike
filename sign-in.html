@@ -58,7 +58,9 @@
 
     <div class="main">
 
-      <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+      <h1>Log In, or <a href="#">Sign Up</a></h1>
+      <br>
+
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
           <a href="#" class="btn btn-lg btn-primary btn-block btn-github"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
@@ -137,7 +139,7 @@ dataRef.ref().push({
 dataRef.ref().on("child_added", function (childSnapshot){
 
 console.log(childSnapshot.val().email);
-console.log(childSnapshot.val().dateAdded);
+console.log(childSnapshot.val().password);
 
   $("#full-member-list").append("<div class='well'><span id='name'> " + childSnapshot.val().name +
     " </span><span id='email'> " + childSnapshot.val().email)
