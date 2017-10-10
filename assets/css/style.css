@@ -5,9 +5,20 @@ body{
   height:100%;
   background-color: blue;
 }
-.intro{
+
+/*html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;*/
+        
+.intro {
   height:100%
 }
+
+#mapCanvas {
+        width: 100%;
+        height: 100%;
+      }
 
 h1 {
   position: absolute;
@@ -42,15 +53,15 @@ h1 {
   }
 }*/
 
-/*#image1 {*/
+/*#image1 {
   left-margin: 200px;
-  padding-left: 30px;
+  padding-left: 30px;*/
 }
 
 #background {
     width: 100%; 
     height: 100%; 
-    position: fixed; 
+    position: fixed;
     left: 0px; 
     top: 0px; 
     z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
@@ -86,11 +97,11 @@ h2 {
 
 
 
-html, body {
+/*html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-}
+}*/
 
 #map {
 	height: 100%;
