@@ -122,8 +122,10 @@ function weather(){
       var proxy = 'https://cors-anywhere.herokuapp.com/';
       var apiLinkDS = "https://api.darksky.net/forecast/" + APIKey + "/" + longitude + "," + latitude;
 
+      console.log(apiLinkDS);
 
-      $("#location-name").html("<h1>Current Weather in " + location[0].name + "</h1>");
+      // $("#location-name").html("<h1>Current Weather in " + location[i].name + "</h1>");
+
     }
 
     $.ajax({
@@ -137,11 +139,11 @@ function weather(){
       console.log("Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F");
       console.log("Current alerts: " + data.alerts[0].title);
 
-      
-      $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
-      $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
-      $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
-      $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
+
+      // $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
+      // $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
+      // $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
+      // $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
     } //end of success function
   })//end of ajax
 }// end of weather function
