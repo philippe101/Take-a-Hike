@@ -1,0 +1,109 @@
+html{
+  height:100%
+}
+body{
+  height:100%;
+  background-color: blue;
+}
+
+/*html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;*/
+        
+.intro {
+  height:100%
+}
+
+#mapCanvas {
+        width: 100%;
+        height: 100%;
+      }
+
+h1 {
+  position: absolute;
+  top: 20px;
+  padding-left: 230px;
+}
+
+.left{
+
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color:#blue;
+  height : 100%;
+  color : #000;
+
+}
+.right{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color:#FFF;
+  height : 100%;
+  color : #3d231b;
+}
+/*@media (max-width: 1200px) { 
+  .left{
+    height:50%
+  }
+  .right{
+    height:50%
+  }
+}*/
+
+/*#image1 {
+  left-margin: 200px;
+  padding-left: 30px;*/
+}
+
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: fixed;
+    left: 0px; 
+    top: 0px; 
+    z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+
+
+.about{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color:#000;
+  color : #FFF;
+  height:100%
+}
+
+.image {
+  position: relative;
+  height: 100%;
+}
+
+h2 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+}
+
+
+
+
+/*html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}*/
+
+#map {
+	height: 100%;
+	
+}
