@@ -55,7 +55,7 @@ $(document).ready(function() {
 
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.setContent(infoWindowContent[i][0] + weatherDiv);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
@@ -140,16 +140,19 @@ function weather(){
       console.log("Current alerts: " + data.alerts[0].title);
 
 
-      // $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
-      // $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
-      // $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
-      // $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
+      $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
+      $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
+      $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
+      $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
     } //end of success function
   })//end of ajax
 }// end of weather function
 
 	initMap();
 	weather();
+
+
+	var weatherDiv = "<div id='location-name'></div><div id='current-temperature'></div><div id='current-skies'></div><div id='tomorrow-high'></div><div id='alerts'></div>"
 }); //end of (document).ready function
 
 
