@@ -85,6 +85,12 @@ h1 {
 .image {
   position: relative;
   height: 100%;
+  padding-right: 10px;
+}
+
+
+.location-image {
+  padding-left: 10px;
 }
 
 h2 {

@@ -1,6 +1,10 @@
 $(document).ready(function() { 
 
-	function initMap() {
+	var weatherDivPinos = '<div id="location-name"></div><div id="current-temperature-pinos"></div><div id="current-skies-pinos"></div><div id="tomorrow-high-pinos"></div><div id="alerts-pinos"></div>';
+	console.log(weatherDivPinos);
+
+
+	function initMap(){
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
@@ -22,12 +26,12 @@ $(document).ready(function() {
 
     var infoWindowContent = [
         ['<div class="info_content">' +
-        '<h3>Joshua Tree</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/jtb_01">' + 
-        '<p>Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'],
+        '<h3>Joshua Tree</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/jtb_01" height="150" width="auto">'
+        + '<p class="location-image">Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p></div>' + '<div id="location-name"></div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>'],
         ['<div class="info_content">' +
         '<h3>Mount Pinos</h3>' +
         '<p>Mount Pinos is the public library system of the borough of Brooklyn, in New York City.</p>' + 
-        '</div>'],
+        '</div>' + weatherDivPinos],
         ['<div class="info_content">' +
         '<h3>Mount Hollywood</h3>' +
         '<p>Mount Hollywood is a 12-acre (4.9 ha) zoo located off Flatbush Avenue on the eastern side of Prospect Park, Brooklyn, New York City.</p>' +
@@ -38,7 +42,7 @@ $(document).ready(function() {
         ['<div class="info_content">' +
         '<h3>Mount Baden-Powell</h3>' +
         '<p>Mount Baden-Powell is a 12-acre (4.9 ha) zoo located off Flatbush Avenue on the eastern side of Prospect Park, Brooklyn, New York City.</p>' +
-        '</div>']
+        '</div>' + '<div class="weather-data"></div>']
       ];
 
        var infoWindow = new google.maps.InfoWindow(), marker, i;
@@ -55,7 +59,7 @@ $(document).ready(function() {
 
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infoWindow.setContent(infoWindowContent[i][0] + weatherDiv);
+                infoWindow.setContent(infoWindowContent[i][0]);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
@@ -107,22 +111,25 @@ function weather(){
         }
       ];
 
-      for (i = 0; i < location.length; i++) {
+      for (var i = 0; i < location.length; i++) {
       // console.log(markers[i]);
 
       console.log("Location name: " + location[i].name);
 
     // weather info
-      var longitude = location[i].longitude;
+	var name = location[i].name;
+		console.log("*" + name);
+	var longitude = location[i].longitude;
        console.log("longitude: " + longitude);
-      var latitude = location[i].latitude;
+	var latitude = location[i].latitude;
        console.log("latitude: " + latitude);
-      var APIKey = "058e52fd52e54f1043d30a1ad70a482e";
-      var queryURL = "https://api.darksky.net/forecast/058e52fd52e54f1043d30a1ad70a482e/33.87342,%20-115.90099";
-      var proxy = 'https://cors-anywhere.herokuapp.com/';
-      var apiLinkDS = "https://api.darksky.net/forecast/" + APIKey + "/" + longitude + "," + latitude;
+	var APIKey = "058e52fd52e54f1043d30a1ad70a482e";
+	var queryURL = "https://api.darksky.net/forecast/058e52fd52e54f1043d30a1ad70a482e/" + longitude + "," + latitude;
+	var proxy = 'https://cors-anywhere.herokuapp.com/';
+	var apiLinkDS = "https://api.darksky.net/forecast/" + APIKey + "/" + longitude + "," + latitude;
 
-      console.log(apiLinkDS);
+      console.log("apiLinkDS: " + apiLinkDS);
+      console.log("queryURL: " + queryURL);
 
       // $("#location-name").html("<h1>Current Weather in " + location[i].name + "</h1>");
 
@@ -139,11 +146,23 @@ function weather(){
       console.log("Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F");
       console.log("Current alerts: " + data.alerts[0].title);
 
+      for (var j = 0; j < data.length; j++) {
+      	if (name === location[0].name){
+      		longitude = location[0].longitude;
+			latitude = location[0].latitude;
+			  $("#current-temperature-pinos").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
+			  $("#current-skies-pinos").html("<p>Current skies: " + data.currently.summary + "</p>");
+			  $("#tomorrow-high-pinos").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
+			  $("#alerts-pinos").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
+      	}
+      }
 
-      $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
-      $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
-      $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
-      $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
+
+      $("#current-temperature-pinos").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
+      $("#current-skies-pinos").html("<p>Current skies: " + data.currently.summary + "</p>");
+      $("#tomorrow-high-pinos").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
+      $("#alerts-pinos").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
+
     } //end of success function
   })//end of ajax
 }// end of weather function
@@ -152,7 +171,6 @@ function weather(){
 	weather();
 
 
-	var weatherDiv = "<div id='location-name'></div><div id='current-temperature'></div><div id='current-skies'></div><div id='tomorrow-high'></div><div id='alerts'></div>"
 }); //end of (document).ready function
 
 
