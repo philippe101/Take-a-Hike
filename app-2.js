@@ -1,7 +1,7 @@
-(function (){
 
+function deeznutz (){
 	// Initialize Firebase
-	var config ={
+	const config ={
 
 	apiKey: "AIzaSyBdJyQWscf12G0AHe0UcI079igredcakD4",
     authDomain: "class-thing.firebaseapp.com",
@@ -16,38 +16,47 @@
 
 // get elements
 
-var txtEmail = document.getElementById("txtEmail");
-var txtPassword = document.getElementById("txtPassword");
-var btnLogin = document.getElementById("btnLogin");
-var btnSignUp = document.getElementById("btnSignUp");
-var btnLogout = document.getElementById("btnLogout");
+const txtEmail = document.getElementById("txtEmail");
+const txtPassword = document.getElementById("txtPassword");
+const btnLogin = document.getElementById("btnLogin");
+const btnSignUp = document.getElementById("btnSignUp");
+const btnLogout = document.getElementById("btnLogout");
 
 
 // Add login event
 
 btnLogin.addEventListener("click", e=> {
 	// get email and pass
-	var email = txtEmail.value;
-	var pass = txtPassword.value;
-	var auth = firebase.auth ();
-	// Sign In
-	var promise = auth.signInWithEmailAndPassword (email, pass);
-	promise.catch (e => console.log(e.message));
+	const email = txtEmail.value;
+	const pass = txtPassword.value;
+	const auth = firebase.auth();
+	
 
+	// Sign In
+	const promise = auth.signInWithEmailAndPassword (email, pass);
+	promise.catch (e => console.log(e.message));
+});
 
 
 	// add sign up event
-btnSignUp.addEventListener("click", e=>{
+
+
+btnSignUp.addEventListener("click", e=> {
 	// get email and pass
 	// todo: check for real emails
-	var email = txtEmail.value;
-	var pass = txtPassword.value;
-	var auth = firebase.auth ();
+	const email = txtEmail.value;
+	const pass = txtPassword.value;
+	const auth = firebase.auth();
 	// Sign Up
-	var promise = auth.createUserWithEmailAndPassword (email, pass);
+	const promise = auth.createUserWithEmailAndPassword (email, pass);
 	promise
 	.catch (e => console.log(e.message));
+
+
+
+
 });
+
 
 btnLogout.addEventListener("click",e => { 
 firebase.auth().signOut();
@@ -56,7 +65,6 @@ firebase.auth().signOut();
 
 
 // add a realtime listener
-
 firebase.auth().onAuthStateChanged(firebaseUser => {
 	if (firebaseUser) {
 		console.log(firebaseUser);
@@ -64,17 +72,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 	}else {
 		console.log("not logged in");
 		btnLogout.classList.add("hide");
-	}
-
-	});
-
+	
+	};
 
 
 
+});
+
+	console.log("deeznutz");
 
 
-
-
-})
-
-})
+};
+deeznutz();

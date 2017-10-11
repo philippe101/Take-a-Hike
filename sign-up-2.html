@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset=="utf-8">
-		<title> </title>
-
-
-<!-- bootstrap -->
- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<meta charset = "UTF-8">
 
 <!-- firebase -->
-
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script src="app-2.js" async defer> </script>
+<!-- bootstrap -->
+
+<!--  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 
-<!-- jquery -->
 
 
+
+<!-- 
+class="btn btn-action"
+class="btn btn-secondary" 
+class="btn btn-action hide" -->
 	</head>
 	<body>
-
+		
 		<div class ="container">
-			<form>
-			<input id = "txtEmail" type="email" placeholder="Email">
-
-			<input id="txtPassword" type = "password" placeholder="Password">
-
-
-			<button id="btnLogin" class="btn btn-action">
-			Log in </button>
-
-			<button id="btnSignUp" class="btn btn-secondary"> Sign Up </button>
-
-			<button id="btnLogout" class="btn btn-action hide"> Log out </button>
-		</form>
+			<input id = "txtEmail" placeholder="Email">
+			<input id="txtPassword" type= "password" placeholder="Password">
+			<input type = "button" id="btnLogin" >
+			Log in </input>
+			<input type = "button" id="btnSignUp" > Sign Up </input>
+			<input type = "button" id="btnLogout" > Log out </input>
 		</div>
 
-		<script src="app-2.js"> </script>
+
+		
+		
 
 	</body>
 	</html>
