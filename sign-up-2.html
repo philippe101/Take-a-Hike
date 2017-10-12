@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 		<meta charset = "UTF-8">
 		
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 <script src="assets/javascript/app-2.js" async defer> </script>
 	</head>
 	<body>
-		<div>
+
+	<div class="parallax">
+	<h1 id="speech-bubble"> TAKE A HIKE! </h1>		
+
+	</div>
+	
+	<div id="div">
 			<input id = "txtEmail" placeholder="Email">
 			<input id="txtPassword" type= "password" placeholder="Password">
-			<button id="btnLogin" >
-			<p>Log in <p> </input>
-			<button id="btnSignUp" > <p>Sign Up<p> </input>
-			<button id="btnLogout" > <p>Log out<p> </input>
+			<button id="btnLogin" class="btn btn btn-secondary" >
+			<p>Log in <p> </button>
+			<button id="btnSignUp" class="btn btn btn-secondary" > <p>Sign Up<p> </button>
+				<br>
+				<br>
+				<br>
+				<br>
+
+
+				<!-- logout -->
+			<!-- <button id="btnLogout" class="btn btn btn-secondary" > <p>Log out<p> </button> -->
 		</div>
 
 	</body>
