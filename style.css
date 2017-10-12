@@ -1,11 +1,12 @@
   #div {
     position:relative;
     top: 100px;
-    left: 400px;
+    left: 450px;
+
   }
 .parallax { 
     /* The image used */
-    background-image: url("max-goofy-movie/goofy-max-sunglasses-4.jpg");
+    background-image: url("assets/images/sign-in-background.jpeg");
 
     /* Set a specific height */
     height: 500px; 
@@ -15,13 +16,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
 }
 
-#speech-bubble {
-  position: relative;
-  left:800px;
-  top:100px;
-}
 
 h1 {
   font-size:100px;
