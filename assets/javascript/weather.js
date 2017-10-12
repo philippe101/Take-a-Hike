@@ -1,17 +1,14 @@
-var weather_apikey = "5fea5bb7daa140b575bd56da497c455f";
+$(document).ready(function() { 
+
+  var weatherDiv = '</div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>';
+  console.log(weatherDiv);
 
 
-
-	var weatherDiv = '</div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>';
-	console.log(weatherDiv);
-
-
-	function initMap(){
-
+  function initMap(){
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
-        mapTypeId: 'terrain'
+        mapTypeId: 'roadmap'
     };
                     
     // Display a map on the web page
@@ -48,28 +45,22 @@ var weather_apikey = "5fea5bb7daa140b575bd56da497c455f";
         '</div>' + '<div class="weather-data"></div>'  + weatherDiv]
       ];
 
-
-      var infoWindow = new google.maps.InfoWindow(), marker, i;
+       var infoWindow = new google.maps.InfoWindow(), marker, i;
     
     // Place each marker on the map  
-    for( i = 0; i < locations.length; i++ ) {
-        console.log(locations[i])
-        var position = new google.maps.LatLng(locations[i].lat, locations[i].lng);
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
         bounds.extend(position);
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position: position,
             map: map,
-            title: locations[i].name
+            title: markers[i][0]
         });
 
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-
-                infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=100px width=100px>'
-                  + '<p>Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'
-                );
                 weather();
-
+                infoWindow.setContent(infoWindowContent[i][0]);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
@@ -89,20 +80,54 @@ google.maps.event.addDomListener(window, 'load', initMap);
 
 function weather(){
 
-      for (i = 0; i < locations.length; i++) {
+  var location = [
+        {
+        name: 'Joshua Tree', 
+        longitude: 33.8734, 
+        latitude: -115.9010
+        },
+        
+        {
+          name: 'Mount Pinos', 
+          latitude: 34.8128, 
+          longitude: -119.1454
+        },
 
+        {
+          name: 'Mount Hollywood', 
+          latitude: 34.0741, 
+          longitude: -118.1804
+        },
 
-      console.log("Location name: " + locations[i].name);
+        {
+          name: 'Mount Baldy',
+          latitude: 34.2364, 
+          longitude: -117.6590
+        },
+
+        {
+          name: 'Mount Baden-Powell', 
+          latitude: 34.3586, 
+          longitude: -117.7645
+        }
+      ];
+
+      for (var i = 0; i < location.length; i++) {
+      // console.log(markers[i]);
+
+      console.log("Location name: " + location[i].name);
 
     // weather info
-      var longitude = locations[i].lng;
-       console.log("longitude: " + longitude);
-      var latitude = locations[i].lat;
+  var name = location[i].name;
+    console.log("*" + name);
+  var latitude = location[i].latitude;
        console.log("latitude: " + latitude);
-      var APIKey = "058e52fd52e54f1043d30a1ad70a482e";
-      var queryURL = "https://api.darksky.net/forecast/058e52fd52e54f1043d30a1ad70a482e/33.87342,%20-115.90099";
-      var proxy = 'https://cors-anywhere.herokuapp.com/';
-      var apiLinkDS = "https://api.darksky.net/forecast/" + APIKey + "/" + latitude + ",%20" + longitude;
+  var longitude = location[i].longitude;
+       console.log("longitude: " + longitude);
+  var APIKey = "058e52fd52e54f1043d30a1ad70a482e";
+  var queryURL = "https://api.darksky.net/forecast/058e52fd52e54f1043d30a1ad70a482e/" + latitude + "," + longitude;
+  var proxy = 'https://cors-anywhere.herokuapp.com/';
+  var apiLinkDS = "https://api.darksky.net/forecast/" + APIKey + "/" + latitude + "," + longitude;
 
       console.log("apiLinkDS: " + apiLinkDS);
       console.log("queryURL: " + queryURL);
@@ -112,46 +137,31 @@ function weather(){
     }
 
     $.ajax({
-      xhrFields: {
-      withCredentials: true
-    },
-      url: proxy + apiLinkDS,
-      method: "GET",
-      success:function(data) { 
-        console.log(data);
-        // console.log(data.currently);
-        console.log("Current Temperature: " + data.currently.temperature + "F");
-        console.log("Current Skies: " + data.currently.summary);
-        console.log("Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F");
-        console.log("Current alerts: " + data.alerts[0].title);
-
-   //    for (var j = 0; j < data.length; j++) {
-   //    	if (name === location[0].name){
-   //    		longitude = location[0].longitude;
-			// latitude = location[0].latitude;
-			//   $("#current-temperature-pinos").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
-			//   $("#current-skies-pinos").html("<p>Current skies: " + data.currently.summary + "</p>");
-			//   $("#tomorrow-high-pinos").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
-			//   $("#alerts-pinos").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
-   //    	}
-   //    }
-
+    url: proxy + apiLinkDS,
+    method: "GET",
+    success:function(data) { 
+      console.log(data);
+      // console.log(data.currently);
+      console.log("Current Temperature: " + data.currently.temperature + "F");
+      console.log("Current Skies: " + data.currently.summary);
+      console.log("Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F");
+      console.log("Current alerts: " + data.alerts[0].title);
 
       $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
       $("#current-skies").html("<p>Current skies: " + data.currently.summary + "</p>");
       $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
       $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
 
-      // $("#current-temperature").html("<p>Current temperature: " + data.currently.temperature + "F</p>");
-      // $("#current-skies").html("<p>Current skies: " + data.currently.icon + " " + data.currently.summary);
-      // $("#tomorrow-high").html("<p>Tomorrow's High: " + data.daily.data[0].temperatureHigh + "F</p>");
-      // $("#alerts").html("<p>Current alerts: " + "<span class='text-danger'>" + data.alerts[0].title + "</p>");
-    }, //end of success function
+    } //end of success function
   })//end of ajax
 }// end of weather function
 
-$(document).ready(function() { 
+  initMap();
+  
 
-	initMap();
-  // getDataTest();
-});
+
+}); //end of (document).ready function
+
+
+
+
