@@ -1,0 +1,28 @@
+  #div {
+    position:relative;
+    top: 100px;
+    left: 400px;
+  }
+.parallax { 
+    /* The image used */
+    background-image: url("max-goofy-movie/goofy-max-sunglasses-4.jpg");
+
+    /* Set a specific height */
+    height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#speech-bubble {
+  position: relative;
+  left:800px;
+  top:100px;
+}
+
+h1 {
+  font-size:100px;
+}

@@ -26,21 +26,33 @@ $(document).ready(function() {
 
     var infoWindowContent = [
         ['<div class="info_content">' +
+<<<<<<< HEAD
         '<h3>Joshua Tree</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/jtb_01" height="150" width="auto">'
         + '<p class="location-image">Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p></div>' + '<div id="location-name"></div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>' + weatherDiv],
         ['<div class="info_content">' +
         '<h3>Mount Pinos</h3>' +
+=======
+        '<h3>Joshua Tree</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="https://www.rei.com/adventures/assets/adventures/images/trip/gallery/northamerica/jtb_01">' + 
+        '<p>Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'],
+        ['<div class="info_content">' + 
+        '<h3>Mount Pinos</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="assets/images/MtPinos2.jpg">' + '<a href="https://www.yelp.com/biz/mount-pinos-frazier-park">Link:https://www.yelp.com/biz/mount-pinos-frazier-park</a>' +
+>>>>>>> dd016179236a05bcbe8f306d892beb0e4405bdb5
         '<p>Mount Pinos is the public library system of the borough of Brooklyn, in New York City.</p>' + 
         '</div>' + weatherDiv],
         ['<div class="info_content">' +
-        '<h3>Mount Hollywood</h3>' +
+        '<h3>Mount Hollywood</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="assets/images/DSC01989TrailsRestaurant.jpg">' +
         '<p>Mount Hollywood is a 12-acre (4.9 ha) zoo located off Flatbush Avenue on the eastern side of Prospect Park, Brooklyn, New York City.</p>' +
         '</div>' + weatherDiv],
         ['<div class="info_content">' +
+<<<<<<< HEAD
         '<h3>Mount Baldy</h3>' +
         '<p>Mount Baldy is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>' + weatherDiv],
+=======
+        '<h3>Mount Baldy</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="assets/images/baldy.jpg">' +
+        '<p>Mount Baldy is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'],
+>>>>>>> dd016179236a05bcbe8f306d892beb0e4405bdb5
         ['<div class="info_content">' +
-        '<h3>Mount Baden-Powell</h3>' +
+        '<h3>Mount Baden-Powell</h3>' + '<IMG BORDER="0" ALIGN="Left" SRC="assets/images/badenpowell3.jpg">' +
         '<p>Mount Baden-Powell is a 12-acre (4.9 ha) zoo located off Flatbush Avenue on the eastern side of Prospect Park, Brooklyn, New York City.</p>' +
         '</div>' + '<div class="weather-data"></div>'  + weatherDiv]
       ];
