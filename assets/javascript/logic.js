@@ -1,6 +1,11 @@
 
 
-
+var latitude = "";
+var longitude = "";
+var APIKey = "";
+var queryURL = "";
+var proxy = "";
+var apiLinkDS = "";
 
 	var weatherDiv = '</div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>';
 	console.log(weatherDiv);
@@ -36,9 +41,11 @@
 
                 
 
+
                 infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=250px width=250px>'
                   + '<p>' + locations[i].description + '</p><br><p>' + locations[i].Link + '</p></div>'
                 );
+
 
                 infoWindow.open(map, marker);
             }
@@ -55,6 +62,7 @@
   // Load initialize function
 google.maps.event.addDomListener(window, 'load', initMap);  
 }
+
 
 $(document).ready(function() { 
 
