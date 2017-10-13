@@ -49,7 +49,7 @@ var locations = [
         lat: 34.135730, 
         lng: -118.304268,
         distance: "distance_stub",
-        difficulty: "difficulty_stub",
+        difficulty: "Medium",
         photo: "assets/images/mtHollywood.jpg",
         id: 6
     },

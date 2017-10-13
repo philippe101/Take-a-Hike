@@ -1,4 +1,4 @@
-var map;
+fvar map;
 var infowindow;
 var bounds;
 var markers = [];
