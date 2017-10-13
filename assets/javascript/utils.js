@@ -103,5 +103,6 @@ function foursquare() {
       var query_url = "https://api.foursquare.com/v2/venues/search?&client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&section=trails&ll=" +locations[i].lat + "," + locations[i].lng + "&v=" + dateString + "&query=" + locations[i].name;
       console.log(query_url)
       foursquareRequest(query_url);
+      
   }
 }
