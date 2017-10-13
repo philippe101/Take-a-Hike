@@ -7,6 +7,8 @@ var dateString = current_date.toISOString().slice(0,10).replace(/-/g,"");
 var venue;
 var venueInfo;
 var response;
+var venue_array = {};
+var weather_array = {};
 
 
 
@@ -54,6 +56,7 @@ function getVenueInfo(data) {
         id: data.response.venues[0].id
     };
     console.log(venueInfo)
+    console.log("venue")
 }
 
 
@@ -68,8 +71,9 @@ function weatherRequest(url) {
         if (httpRequest.readyState == XMLHttpRequest.DONE) {
             if (httpRequest.status == 200) {
                 var w_response = JSON.parse(httpRequest.responseText);
+                console.log(w_response)
                 console.log("Name: " + w_response.name)
-                var temp = (w_response.main.temp - 273) * (5 / 9) + 32;
+                var temp = Math.round((w_response.main.temp - 273) * (9/5) + 32);
                 console.log("Temp: " + w_response.main.temp)
                 console.log("Temp: " + temp)
                 console.log("Weather: " + w_response.weather[0].main + " " + w_response.weather[0].description)
