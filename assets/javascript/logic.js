@@ -73,7 +73,10 @@ var apiLinkDS = "";
                 infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=100px width=100px>'
                   + '<p>Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'
                 );
+<<<<<<< HEAD
                 
+=======
+>>>>>>> ebdbb8944672d42586eb5857d958a16646de5322
 
                 infoWindow.open(map, marker);
             }
@@ -91,6 +94,7 @@ var apiLinkDS = "";
 google.maps.event.addDomListener(window, 'load', initMap);  
 }
 
+<<<<<<< HEAD
 
 
 function weather(){
@@ -166,8 +170,12 @@ function weather(){
   })//end of ajax
 }// end of weather function
 
+=======
+>>>>>>> ebdbb8944672d42586eb5857d958a16646de5322
 $(document).ready(function() { 
 
 	initMap();
-  // getDataTest();
+  makeRequest();
+  weather();
+  foursquare();
 });

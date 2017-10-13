@@ -6,7 +6,8 @@
   ">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/data.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 </head>
 <body>
 
@@ -21,30 +22,54 @@
 <div id="location-view">Location View</div>
 
 
-<script src="assets/javascript/map.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChIaJwsl-pT3RNUGOaTOMgVeGpBdxvtFA&v=3&callback=initMap" async defer onerror="mapError()"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChIaJwsl-pT3RNUGOaTOMgVeGpBdxvtFA&v=3&callback=initMap" async defer onerror="mapError()"></script> -->
 
 <script>
-  
-var CLIENT_ID = "JMRL0LMRP5KL2BKOT5MJGGADP4FGW1RB1NDY53ENOVEN5KR3";
-var CLIENT_SECRET = "1D32DJ1AOTCPXDGR4VFWYQTFR2DEE24NYS1YQV41SLFGUBNL";
-var location;
-var query = 'trails';
-var base_url = 'https://api.foursquare.com/v2/venues/explore?near=' + location + '&query=' + query + '&venuePhotos=1';
-var query_url = base_url + '&v=20170101' + '&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET;
 
-  function displayFoursquareInfo() {
-    $.ajax({
-      url: query_url,
-      method: "GET"
-    }).done(function(response) {
-      $("#location-view").html(JSON.stringify(response));
-    });
+var response;
+var queryURL = "https://api.darksky.net/forecast/058e52fd52e54f1043d30a1ad70a482e/33.87342,%20-115.90099";
+var testurl = "http://api.openweathermap.org/data/2.5/weather?lat=34.046642&lon=-118.5588&appid=5fea5bb7daa140b575bd56da497c455f"
+
+function weatherRequest(url) {
+    var httpRequest = new XMLHttpRequest();
+    if (!httpRequest) {
+        alert("Sorry, we can't connect to the foursquare database")
+        return false;
+    }
+
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == XMLHttpRequest.DONE) {
+            if (httpRequest.status == 200) {
+                response = JSON.parse(httpRequest.responseText);
+                console.log("Name: " + response.name)
+                var temp = (response.main.temp - 273) * (5 / 9) + 32;
+                console.log("Temp: " + response.main.temp)
+                console.log("Temp: " + temp)
+                console.log("Weather: " + response.weather[0].main + " " + + response.weather[0].description)
+            } else if (httpRequest.status == 400) {
+                alert('There was an error 400');
+            } else {
+            alert('Error, something other than 200 was returned');
+            console.log(httpRequest.responseText)
+             }
+        }
+    };
+
+    httpRequest.open('GET', url);
+    httpRequest.send();
+};
+
+function weather() {
+  for (i = 0; i < locations.length; i++) {
+      var query_url = "http://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=5fea5bb7daa140b575bd56da497c455f";
+      weatherRequest(query_url);
   }
+}
 
-  $(document).on("click", "#add-location", displayFoursquareInfo);
 
+
+
+weather();
 
 </script>
 
