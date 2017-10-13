@@ -1,0 +1,54 @@
+.parallax { 
+    /* The image used */
+    background-image: url("assets/images/sign-in-background.jpeg");
+
+    /* Set a specific height */
+    height: 700px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+}
+
+
+.bg-warning {
+    position: relative;
+    padding: 20px;
+    left: 300px;
+    top: 100px;
+    border-style: dashed;
+    border-width: 15px;
+    border-color: black;
+    background-color:;
+    height:250px;
+    width: 400px;
+}
+
+
+.bg-success {
+    position:relative;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+
+#quote {
+    position: relative;
+    left: 400px;
+}
+
+#div {
+    background-color:;
+}
+
+.text {
+    position: relative;
+    left: 80px;
+}
