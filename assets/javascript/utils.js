@@ -1,5 +1,6 @@
 var CLIENT_ID = "JMRL0LMRP5KL2BKOT5MJGGADP4FGW1RB1NDY53ENOVEN5KR3";
 var CLIENT_SECRET = "1D32DJ1AOTCPXDGR4VFWYQTFR2DEE24NYS1YQV41SLFGUBNL";
+var weather_apikey = "5fea5bb7daa140b575bd56da497c455f";
 var location;
 var current_date = new Date();
 var dateString = current_date.toISOString().slice(0,10).replace(/-/g,"");
@@ -87,7 +88,7 @@ function weatherRequest(url) {
 
 function weather() {
   for (i = 0; i < locations.length; i++) {
-      var query_url = "http://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=5fea5bb7daa140b575bd56da497c455f";
+      var query_url = "http://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=" + weather_apikey;
       console.log(query_url)
       weatherRequest(query_url);
   }
