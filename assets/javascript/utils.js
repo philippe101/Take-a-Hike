@@ -99,6 +99,7 @@ function getWeatherInfo(data){
         name: data.name,
         temp: Math.round((data.main.temp - 273) * (9/5) + 32),
         weather: data.weather[0].main,
+        weatherdescr: data.weather[0].description,
         coord: data.coord
     };
     weather_array.push(weatherInfo);

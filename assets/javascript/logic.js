@@ -39,7 +39,7 @@
                 
 
                 infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=200px width=200px>'
-                  + '<p>' + locations[i].description + '</p><br><p>' + locations[i].Link + '</p><br><p> Temp:' + weather_array[i].temp + '</p></div>');
+                  + '<p>' + locations[i].description + '</p><p>' + locations[i].Link + '</p><p> Temp:' + weather_array[i].temp + '</p><p> Weather: ' + weather_array[i].weather + '</p><p> Conditions: ' + weather_array[i].weatherdescr + '</p></div>');
 
 
                 infoWindow.open(map, marker);
