@@ -38,7 +38,7 @@ var apiLinkDS = "";
 
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-            
+
                 infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=100px width=100px>'
                   + '<p>Joshua Tree is an art museum located in the New York City borough of Brooklyn.</p>' + '</div>'
                 );
