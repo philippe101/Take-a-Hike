@@ -7,6 +7,7 @@ var dateString = current_date.toISOString().slice(0,10).replace(/-/g,"");
 var venue;
 var venueInfo;
 var response;
+var temp;
 
 
 
@@ -54,6 +55,7 @@ function getVenueInfo(data) {
         id: data.response.venues[0].id
     };
     console.log(venueInfo)
+    console.log(data);
 }
 
 
@@ -79,6 +81,7 @@ function weatherRequest(url) {
             alert('Error, something other than 200 was returned');
             console.log(httpRequest.responseText)
              }
+             $(".temp").html(w_response.name);
         }
     };
 
