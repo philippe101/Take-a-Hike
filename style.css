@@ -8,11 +8,11 @@
   #div2 {
   }
 .parallax { 
-    /* The image used */
+    
     background-image: url("assets/images/sign-in-background.jpeg");
-    /* Set a specific height */
+    
     height: 500px; 
-    /* Create the parallax scrolling effect */
+    
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,4 +39,9 @@ h1 {
     left:460px;
     height: 130px;
     width: 370px;
+}
+
+#btnLogout {
+    position: absolute;
+    left: 600px;
 }
