@@ -1,11 +1,18 @@
- .parallax { 
-    /* The image used */
+  #div {
+    position:relative;
+    top:30px;
+    left: 450px;
+    width:;
+  }
+
+  #div2 {
+  }
+.parallax { 
+    
     background-image: url("assets/images/sign-in-background.jpeg");
-
-    /* Set a specific height */
+    
     height: 500px; 
-
-    /* Create the parallax scrolling effect */
+    
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,37 +21,27 @@
     border-color: black;
     border-width: 10px;
 }
-
 h1 {
   font-size:100px;
 }
 
-#txtEmail {
-    position:relative;
-    left:400px;
-    top:30px;
+#bottomPage {
+    position: static;
+    background-color: ;
 }
 
-#txtPassword {
+#font {
     position: relative;
-    left: 400px;
-    top:30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    top: 140px;
+    left:460px;
+    height: 130px;
+    width: 370px;
 }
 
-#btnLogin {
-    position: relative;
-    left:400px;
-    top:30px;
-}
-
-#btnSignUp {
-    position: relative;
-    left:400px;
-    top:30px;
-}
-
-
-#quote {
-    position: relative;
-    top: 400px;
+#btnLogout {
+    position: absolute;
+    left: 600px;
 }

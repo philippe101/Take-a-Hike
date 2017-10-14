@@ -1,6 +1,6 @@
 function run (){
 
-	var config ={
+	const config ={
 	apiKey: "AIzaSyBdJyQWscf12G0AHe0UcI079igredcakD4",
     authDomain: "class-thing.firebaseapp.com",
     databaseURL: "https://class-thing.firebaseio.com",
@@ -14,6 +14,7 @@ const txtEmail = document.getElementById("txtEmail");
 const txtPassword = document.getElementById("txtPassword");
 const btnLogin = document.getElementById("btnLogin");
 const btnSignUp = document.getElementById("btnSignUp");
+const btnLogout = document.getElementById("btnLogout");
 
 
 btnLogin.addEventListener("click", e=> {
@@ -33,12 +34,19 @@ btnSignUp.addEventListener("click", e=> {
 	.catch (e => console.log(e.message));
 });
 
+btnLogout.addEventListener("click",e => { 
+firebase.auth().signOut();
+	
+});
+
 firebase.auth().onAuthStateChanged(firebaseUser => {
 	if (firebaseUser) {
 		console.log(firebaseUser);
 		
+		
 	}else {
 		console.log("not logged in");
+	
 		
 	};
 });
