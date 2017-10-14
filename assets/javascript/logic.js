@@ -2,11 +2,19 @@
 
 
 
+<<<<<<< HEAD
+  var weatherDiv = '</div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>';
+  console.log(weatherDiv);
+
+
+  function initMap(){
+=======
     var weatherDiv = '</div><div id="current-temperature"></div><div id="current-skies"></div><div id="tomorrow-high"></div><div id="alerts"></div>';
     console.log(weatherDiv);
 
 
     function initMap(){
+>>>>>>> master
 
     var map;
     var bounds = new google.maps.LatLngBounds();
@@ -39,8 +47,13 @@
                 
 
                 infoWindow.setContent('<div class="info_content"><h3>' + locations[i].name + '</h3> <IMG BORDER="0" ALIGN="Left" SRC="' + locations[i].photo + '" height=200px width=200px>'
+<<<<<<< HEAD
+                  + '<p>' + locations[i].description + '</p>' + '<div class="temp"></div>' + '<br><p>' + locations[i].Link + '</p></div>'
+                );
+=======
                   + '<p>' + locations[i].description + '</p><p>' + locations[i].Link + '</p><p> Temp:' + weather_array[i].temp + '</p><p> Weather: ' + weather_array[i].weather + '</p><p> Conditions: ' + weather_array[i].weatherdescr + '</p></div>');
 
+>>>>>>> master
 
                 infoWindow.open(map, marker);
             }
@@ -58,6 +71,13 @@
 google.maps.event.addDomListener(window, 'load', initMap);  
 }
 
+<<<<<<< HEAD
+$(document).ready(function() { 
+
+  initMap();
+  foursquare();
+  weather();
+=======
 
 $(document).ready(function() { 
 
@@ -65,4 +85,5 @@ $(document).ready(function() {
     weather();
     initMap();
   
+>>>>>>> master
 });
