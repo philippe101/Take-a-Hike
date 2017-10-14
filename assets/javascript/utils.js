@@ -86,6 +86,7 @@ function weatherRequest(url) {
             alert('Error, something other than 200 was returned');
             console.log(httpRequest.responseText)
              }
+             $(".temp").html(w_response.name);
         }
     };
 
@@ -108,7 +109,7 @@ function getWeatherInfo(data){
 
 function weather() {
   for (i = 0; i < locations.length; i++) {
-      var query_url = "http://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=" + weather_apikey;
+      var query_url = "https://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=" + weather_apikey;
       // console.log(query_url)
       weatherRequest(query_url);
   }
