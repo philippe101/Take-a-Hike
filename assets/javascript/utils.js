@@ -7,16 +7,11 @@ var dateString = current_date.toISOString().slice(0,10).replace(/-/g,"");
 var venue;
 var venueInfo;
 var response;
-<<<<<<< HEAD
-var temp;
-
-=======
 var weather;
 var weatherInfo;
 var venue_array = [];
 var weather_array = [];
 var w_response;
->>>>>>> master
 
 
 // var query_url = 'https://api.foursquare.com/v2/venues/search?' + '&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET +
@@ -62,13 +57,8 @@ function getVenueInfo(data) {
         checkins: venue.stats.checkinsCount,
         id: data.response.venues[0].id
     };
-<<<<<<< HEAD
-    console.log(venueInfo)
-    console.log(data);
-=======
     venue_array.push(venueInfo);
     console.log("venue")
->>>>>>> master
 }
 
 
