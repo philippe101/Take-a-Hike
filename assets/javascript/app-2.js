@@ -1,15 +1,18 @@
 function run (){
 
-	const config ={
-	apiKey: "AIzaSyBdJyQWscf12G0AHe0UcI079igredcakD4",
-    authDomain: "class-thing.firebaseapp.com",
-    databaseURL: "https://class-thing.firebaseio.com",
-    projectId: "class-thing",
-    storageBucket: "class-thing.appspot.com",
-    messagingSenderId: "742683233065"
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD5QMYzLquOPs8SdvNSOThs3DwRVNMKVws",
+    authDomain: "take-a-hike-1e52e.firebaseapp.com",
+    databaseURL: "https://take-a-hike-1e52e.firebaseio.com",
+    projectId: "take-a-hike-1e52e",
+    storageBucket: "take-a-hike-1e52e.appspot.com",
+    messagingSenderId: "339109679713"
   };
   firebase.initializeApp(config);
-	
+
 const txtEmail = document.getElementById("txtEmail");
 const txtPassword = document.getElementById("txtPassword");
 const btnLogin = document.getElementById("btnLogin");
