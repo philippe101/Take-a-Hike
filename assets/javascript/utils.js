@@ -1,5 +1,5 @@
-var CLIENT_ID = "JMRL0LMRP5KL2BKOT5MJGGADP4FGW1RB1NDY53ENOVEN5KR3";
-var CLIENT_SECRET = "1D32DJ1AOTCPXDGR4VFWYQTFR2DEE24NYS1YQV41SLFGUBNL";
+var CLIENT_ID = "2RYHIVQJJOJMYWXEY132XM2IZMNGU3IPMUFQ5VYCVB4EBQB1";
+var CLIENT_SECRET = "25HPDRLGAUYFIQOWZ5HANERIOEJZF0QYQMSPYS1HFDU2TIM1";
 var weather_apikey = "5fea5bb7daa140b575bd56da497c455f";
 var location;
 var current_date = new Date();
@@ -7,8 +7,16 @@ var dateString = current_date.toISOString().slice(0,10).replace(/-/g,"");
 var venue;
 var venueInfo;
 var response;
+<<<<<<< HEAD
 var temp;
 
+=======
+var weather;
+var weatherInfo;
+var venue_array = [];
+var weather_array = [];
+var w_response;
+>>>>>>> master
 
 
 // var query_url = 'https://api.foursquare.com/v2/venues/search?' + '&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET +
@@ -54,8 +62,13 @@ function getVenueInfo(data) {
         checkins: venue.stats.checkinsCount,
         id: data.response.venues[0].id
     };
+<<<<<<< HEAD
     console.log(venueInfo)
     console.log(data);
+=======
+    venue_array.push(venueInfo);
+    console.log("venue")
+>>>>>>> master
 }
 
 
@@ -69,12 +82,14 @@ function weatherRequest(url) {
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == XMLHttpRequest.DONE) {
             if (httpRequest.status == 200) {
-                var w_response = JSON.parse(httpRequest.responseText);
-                console.log("Name: " + w_response.name)
-                var temp = (w_response.main.temp - 273) * (5 / 9) + 32;
-                console.log("Temp: " + w_response.main.temp)
-                console.log("Temp: " + temp)
-                console.log("Weather: " + w_response.weather[0].main + " " + w_response.weather[0].description)
+                w_response = JSON.parse(httpRequest.responseText);
+                // console.log(w_response)
+                // console.log("Name: " + w_response.name)
+                // var temp = Math.round((w_response.main.temp - 273) * (9/5) + 32);
+                // console.log("Temp: " + w_response.main.temp)
+                // console.log("Temp: " + temp)
+                // console.log("Weather: " + w_response.weather[0].main + " " + w_response.weather[0].description)
+                getWeatherInfo(w_response);
             } else if (httpRequest.status == 400) {
                 alert('There was an error 400');
             } else {
@@ -89,10 +104,23 @@ function weatherRequest(url) {
     httpRequest.send();
 };
 
+function getWeatherInfo(data){
+    console.log(data)
+    weatherInfo = {
+        name: data.name,
+        temp: Math.round((data.main.temp - 273) * (9/5) + 32),
+        weather: data.weather[0].main,
+        weatherdescr: data.weather[0].description,
+        coord: data.coord
+    };
+    weather_array.push(weatherInfo);
+    console.log("weather")
+}
+
 function weather() {
   for (i = 0; i < locations.length; i++) {
       var query_url = "http://api.openweathermap.org/data/2.5/weather?lat=" + locations[i].lat + "&lon=" + locations[i].lng + "&appid=" + weather_apikey;
-      console.log(query_url)
+      // console.log(query_url)
       weatherRequest(query_url);
   }
 }
@@ -100,7 +128,8 @@ function weather() {
 function foursquare() {
   for (i = 0; i < locations.length; i++) {
       var query_url = "https://api.foursquare.com/v2/venues/search?&client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&section=trails&ll=" +locations[i].lat + "," + locations[i].lng + "&v=" + dateString + "&query=" + locations[i].name;
-      console.log(query_url)
+      // console.log(query_url)
       foursquareRequest(query_url);
+      
   }
 }
